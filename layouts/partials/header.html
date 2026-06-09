@@ -7,5 +7,13 @@
       </a>
     </div>
   </div>
-  {{ partial "nav.html" . }}
+  <nav class="main-nav">
+    <ul>
+      {{ with .Site.Menus.main }}
+        {{ range . }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
 </header>
