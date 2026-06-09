@@ -1,5 +1,8 @@
 {{/* Partial override: header com logomarca OTB */}}
 <header class="header">
+  <!-- Forçar carregamento dos estilos locais caso o tema não os inclua automaticamente -->
+  <link rel="stylesheet" href="{{ "assets/css/dark.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "assets/css/extended.css" | relURL }}">
   <div class="site-branding">
     <div class="site-title">
       <a href="{{ .Site.BaseURL }}">
