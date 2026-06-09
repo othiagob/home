@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   pages: write
@@ -24,6 +27,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Download Archie theme
+        run: git clone --depth 1 https://github.com/athul/archie.git themes/archie
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
