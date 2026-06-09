@@ -1,0 +1,53 @@
+baseURL = "https://othiagob.github.io/"
+languageCode = "pt-br"
+title = "Blog - Othiago Barbosa"
+theme = "archie"
+copyright = "© Othiago Barbosa"
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+	mode = "auto"
+	useCDN = false
+	subtitle = "Um espaço para compartilhar pensamentos sobre programação e tecnologia"
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/othiagob"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://linkedin.com"
+
+[[params.social]]
+name = "Email"
+icon = "mail"
+url = "mailto:seu-email@exemplo.com"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Sobre"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[menu.main]]
+name = "Buscar"
+url = "/search/"
+weight = 5
