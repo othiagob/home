@@ -1,16 +1,23 @@
-baseURL = "https://othiagob.github.io/"
+baseURL = "https://othiagob.github.io/home/"
 languageCode = "pt-br"
 title = "Blog - Othiago Barbosa"
-theme = "archie"
 copyright = "© Othiago Barbosa"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+[module]
+  [[module.imports]]
+    path = "github.com/athul/archie"
+
+[pagination]
+  pagerSize = 5
+
 [params]
 	mode = "auto"
 	useCDN = false
 	subtitle = "Um espaço para compartilhar pensamentos sobre programação e tecnologia"
+	mainSections = ["posts"]
 
 [[params.social]]
 name = "GitHub"
