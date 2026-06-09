@@ -1,22 +1,33 @@
-{{/* Partial override: header com logomarca OTB */}}
-<header class="header">
-  <!-- Forçar carregamento dos estilos locais caso o tema não os inclua automaticamente -->
+{{/* Partial override: header com head, metatags, CSS e marca OTB */}}
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Site.Params.subtitle }}{{ . }}{{ end }}">
+  <!-- Estilos locais (override / extensões) -->
   <link rel="stylesheet" href="{{ "assets/css/dark.css" | relURL }}">
   <link rel="stylesheet" href="{{ "assets/css/extended.css" | relURL }}">
-  <div class="site-branding">
-    <div class="site-title">
-      <a href="{{ .Site.BaseURL }}">
-        <span class="logo-otb">OTB</span>
-      </a>
+  <!-- Tentativa de carregar o CSS principal do tema (fallback) -->
+  <link rel="stylesheet" href="{{ "themes/archie/assets/css/main.css" | relURL }}">
+</head>
+<body>
+  <header class="header">
+    <div class="site-branding">
+      <div class="site-title">
+        <a href="{{ .Site.BaseURL }}">
+          <span class="logo-otb">OTB</span>
+        </a>
+      </div>
     </div>
-  </div>
-  <nav class="main-nav">
-    <ul>
-      {{ with .Site.Menus.main }}
-        {{ range . }}
-          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+    <nav class="main-nav">
+      <ul>
+        {{ with .Site.Menus.main }}
+          {{ range . }}
+            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{ end }}
         {{ end }}
-      {{ end }}
-    </ul>
-  </nav>
-</header>
+      </ul>
+    </nav>
+  </header>
