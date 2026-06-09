@@ -4,6 +4,15 @@ body {
   background-color: var(--color-background-dark, #202124);
 }
 
+/* Paleta: substituir vermelho/verde por azul principal */
+:root {
+  --color-primary: #1a6ed8;
+  --color-primary-hover: #155bbf;
+  --color-border: #1a6ed8;
+  --color-primary-dark: #1a6ed8;
+  --color-border-dark: #1a6ed8;
+}
+
 ::-moz-selection {
   background: var(--color-primary-dark, #50fa7b);
   color: #000000;

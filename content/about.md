@@ -1,16 +1,17 @@
 ---
+---
 title: "Sobre mim"
 date: 2026-06-09
 draft: false
 ---
 
-# Sobre Othiago Barbosa
+# Sobre Thiago Borghardt
 
-Olá! Sou Othiago Barbosa, desenvolvedor de software apaixonado por tecnologia e inovação.
+Olá! Sou Thiago Borghardt, desenvolvedor de software apaixonado por tecnologia e inovação.
 
 ## Experiência
 
-Trabalho com desenvolvimento de software há vários anos, com foco em:
+Trabalho com desenvolvimento de software, com foco em:
 
 * **Backend** - Node.js, Go, Python
 * **DevOps** - Docker, Kubernetes, CI/CD
@@ -28,7 +29,12 @@ Além de programação, tenho interesse em:
 
 ## Contato
 
-Você pode me encontrar nos links disponíveis no rodapé da página. Estou sempre aberto para conversas sobre tecnologia e oportunidades de colaboração!
+| Canal      | Link / Informação |
+|------------|-------------------|
+| E-mail     | thiago.backend@gmail.com |
+| LinkedIn   | [linkedin.com/in/thiago-borghardt-5234b0334](https://www.linkedin.com/in/thiago-borghardt-5234b0334/) |
+| GitHub     | [github.com/othiagob](https://github.com/othiagob) |
+| WhatsApp   | [69 9.9368-4773](https://wa.me/5569993684773) |
 
 ---
 

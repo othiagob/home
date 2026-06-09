@@ -3,6 +3,7 @@ title: "Docker: Containerizando Aplicações"
 date: 2026-06-07
 draft: false
 tags: ["docker", "devops", "containers"]
+summary: "Introdução prática ao Docker: conceitos, benefícios e comandos para containerizar aplicações."
 ---
 
 # Docker: Containerizando Aplicações

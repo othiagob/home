@@ -1,0 +1,90 @@
+/* Variáveis de paleta e overrides */
+:root {
+  --color-primary: #1a6ed8;
+  --color-primary-hover: #155bbf;
+  --color-border: #1a6ed8;
+  --color-primary-dark: #1a6ed8;
+  --color-border-dark: #1a6ed8;
+}
+
+/* ── Logomarca OTB ─────────────────────────────────────────── */
+.site-title a {
+  text-decoration: none !important;
+  border: none !important;
+  background: none !important;
+}
+
+.logo-otb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background-color: #1a6ed8;       /* azul principal */
+  border: 2px solid #1a6ed8;
+  border-radius: 6px;              /* cantos levemente arredondados */
+  line-height: 1.4;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.logo-otb:hover {
+  background-color: #155bbf;
+  border-color: #155bbf;
+}
+
+/* ── Lista de posts na home ─────────────────────────────────── */
+
+/* Card de cada post */
+.post-item,
+article.post {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Título do post — destaque claro */
+.post-item h2 a,
+.post-title a,
+h2.post-title a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a6ed8;
+  border-bottom: none !important;
+  text-decoration: none;
+}
+
+.post-item h2 a:hover,
+.post-title a:hover {
+  text-decoration: underline;
+  background: none !important;
+  color: #155bbf;
+}
+
+/* Metadados (data, tags) — discretos, abaixo do título */
+.post-meta,
+.post-date,
+time {
+  display: block;
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0.2rem 0 0.6rem 0;
+}
+
+/* Resumo do post */
+.post-summary,
+.summary,
+p.post-summary {
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: inherit;
+  margin: 0;
+}
+
+/* Separador visual entre título e data — evita colisão visual */
+.post-item h2,
+.post-title {
+  margin-bottom: 0.15rem;
+}

@@ -3,6 +3,7 @@ title: "Introdução ao Go: Uma Linguagem Moderna e Eficiente"
 date: 2026-06-08
 draft: false
 tags: ["go", "programação", "tutorial"]
+summary: "Visão geral do Go: características, exemplos e por que usá-lo em sistemas modernos."
 ---
 
 # Introdução ao Go
