@@ -3,7 +3,7 @@ title: "Bem-vindo ao meu Blog"
 date: 2026-06-09
 draft: false
 tags: ["blog", "início"]
-summary: "Post de boas-vindas ao blog. Tutoriais práticos, análises técnicas e experiências pessoais sobre programação."
+summary: "Apresentação do blog, com os temas que serão abordados: programação, tecnologia, backend e aprendizados práticos."
 ---
 
 # Bem-vindo!

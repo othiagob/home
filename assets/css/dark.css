@@ -1,158 +1,158 @@
 /* Dark theme overrides */
 body {
   color: var(--color-text-dark, #ffffff);
-  background-color: var(--color-background-dark, #202124);
-}
+  :root {
+    --color-primary: #1a6ed8;
+    --color-primary-hover: #155bbf;
+    --color-border: #1a6ed8;
+    --color-primary-dark: #1a6ed8;
+    --color-border-dark: #1a6ed8;
+  }
 
-/* Paleta: substituir vermelho/verde por azul principal */
-:root {
-  --color-primary: #1a6ed8;
-  --color-primary-hover: #155bbf;
-  --color-border: #1a6ed8;
-  --color-primary-dark: #1a6ed8;
-  --color-border-dark: #1a6ed8;
-}
+  body {
+    color: var(--color-text-dark, #ffffff);
+    background-color: var(--color-background-dark, #202124);
+  }
 
-::-moz-selection {
-  background: var(--color-primary-dark, #50fa7b);
-  color: #000000;
-  text-shadow: none;
-}
+  ::selection,
+  ::-moz-selection {
+    background: var(--color-primary-dark);
+    color: #ffffff;
+    text-shadow: none;
+  }
 
-::selection {
-  background: var(--color-primary-dark, #50fa7b);
-  color: #000000;
-  text-shadow: none;
-}
+  a {
+    border-block-end-color: var(--color-primary-dark);
+  }
 
-hr {
-  border-block-start: 3px dotted var(--color-border-dark, #0066ff);
-}
+  a:hover,
+  a:focus {
+    background-color: var(--color-primary-dark);
+    color: #ffffff;
+    outline-color: var(--color-primary-dark);
+  }
 
-code {
-  background-color: var(--color-background-code-dark, #3a3a3a);
-  color: var(--color-text-dark, #ffffff);
-}
+  hr,
+  pre,
+  blockquote,
+  .header nav,
+  footer,
+  table th,
+  table td,
+  .search-panel,
+  .search-result-card,
+  .search-input,
+  kbd {
+    border-color: var(--color-border-dark) !important;
+  }
 
-pre {
-  background-color: var(--color-background-pre-dark, #272822);
-  border-color: var(--color-border-dark, #0066ff);
-}
+  h1::before,
+  h2::before,
+  h3::before,
+  h4::before,
+  h5::before,
+  h6::before,
+  .tags a,
+  .search-tag {
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+  }
 
-blockquote {
-  border-color: var(--color-border-dark, #0066ff);
-  color: var(--color-text-muted-dark, #dddddd);
-}
+  .site-title a {
+    text-decoration: none !important;
+    border: none !important;
+    background: none !important;
+  }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--color-text-muted-dark, #dddddd);
-}
+  .site-title a::before {
+    content: "OTB";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    background-color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-dark);
+    border-radius: 6px;
+    line-height: 1.4;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
 
-h1::before { color: var(--color-primary-dark, #50fa7b); }
-h2::before { color: var(--color-primary-dark, #50fa7b); }
-h3::before { color: var(--color-primary-dark, #50fa7b); }
-h4::before { color: var(--color-primary-dark, #50fa7b); }
-h5::before { color: var(--color-primary-dark, #50fa7b); }
-h6::before { color: var(--color-primary-dark, #50fa7b); }
+  .site-title a:hover::before,
+  .site-title a:focus::before {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
 
-.toc {
-  background-color: var(--color-background-toc-dark, #272822);
-  color: var(--color-text-dark, #ffffff);
-  border-color: var(--color-border-dark, #0066ff);
-}
+  .site-title a {
+    font-size: 0;
+  }
 
-/* Links */
-a {
-  border-block-end: 3px solid var(--color-primary-dark, #50fa7b);
-  color: inherit;
-}
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-a:hover,
-a:focus {
-  background-color: var(--color-primary-dark, #50fa7b);
-  color: #000000;
-  outline-color: var(--color-primary-dark, #50fa7b);
-}
+  .post-item {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.28);
+    padding-bottom: 1.5rem;
+  }
 
-.site-description a {
-  color: var(--color-text-muted-dark, #dddddd);
-}
+  .post-title {
+    margin-bottom: 0.25rem;
+  }
 
-.site-description a:hover,
-.site-description a:focus {
-  color: #000000;
-}
+  .post-title a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    border-bottom: none !important;
+    text-decoration: none;
+  }
 
-/* Tags */
-.tags a {
-  border-block-end: 3px solid var(--color-primary-dark, #50fa7b);
-}
+  .post-title a:hover,
+  .post-title a:focus {
+    color: #ffffff;
+    background-color: var(--color-primary-hover);
+    text-decoration: none;
+  }
 
-.tags a:hover,
-.tags a:focus {
-  background-color: var(--color-primary-dark, #50fa7b);
-  color: #000000;
-}
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+    margin: 0.25rem 0 0.65rem;
+    font-size: 0.82rem;
+    color: #999999;
+  }
 
-.site-title a {
-  color: var(--color-text-dark, #ffffff);
-  text-decoration: none !important;
-}
+  .post-tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
 
-.header nav,
-footer {
-  border-color: var(--color-border-dark, #0066ff);
-}
+  .post-tags a {
+    border-bottom: none !important;
+    color: #999999;
+    text-decoration: none;
+  }
 
-.highlight {
-  background-color: var(--color-background-pre-dark, #272822);
-}
+  .post-tags a:hover,
+  .post-tags a:focus {
+    color: #ffffff;
+    background-color: var(--color-primary-hover);
+  }
 
-.soc:hover,
-.soc:focus {
-  color: #000000;
-  outline-color: var(--color-primary-dark, #50fa7b);
-}
-
-.draft-label {
-  color: var(--color-text-dark, #ffffff);
-  background-color: var(--color-background-draft-dark, #0066ff);
-}
-
-/* Tables in dark mode */
-table th {
-  background-color: var(--color-background-pre-dark, #272822);
-  color: var(--color-text-dark, #ffffff);
-  border-color: var(--color-border-dark, #0066ff);
-}
-
-table td {
-  border-color: var(--color-border-dark, #0066ff);
-  color: var(--color-text-dark, #ffffff);
-}
-
-table tr:nth-child(even) {
-  background-color: var(--color-background-code-dark, #3a3a3a);
-}
-
-/* Navigation toggle in dark mode */
-.nav-toggle {
-  color: var(--color-text-dark, #ffffff);
-}
-
-.nav-toggle:hover,
-.nav-toggle:focus {
-  background-color: var(--color-primary-dark, #50fa7b);
-  color: #000000;
-  outline-color: var(--color-primary-dark, #50fa7b);
-}
-/* Language badges inherit from main.css - no duplicates needed */
+  .post-summary {
+    margin: 0;
+    line-height: 1.65;
+  }
 
 /* Callouts in dark mode */
 .callout {
