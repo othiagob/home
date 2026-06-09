@@ -1,0 +1,167 @@
+:root {
+  --color-primary: #1a6ed8;
+  --color-primary-hover: #155bbf;
+  --color-border: #1a6ed8;
+  --color-primary-dark: #4d9aff;
+  --color-primary-hover-dark: #78b4ff;
+  --color-border-dark: #4d9aff;
+}
+
+::selection,
+::-moz-selection {
+  color: #ffffff;
+}
+
+a:hover,
+a:focus {
+  background-color: var(--color-primary-hover);
+  outline-color: var(--color-primary);
+}
+
+/* OTHIAGOB brand in the Archie header. */
+header .main > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 6px;
+  font-size: 0;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+header .main > a::before {
+  content: "OTHIAGOB";
+  font-size: 1.25rem;
+}
+
+header .main > a:hover,
+header .main > a:focus {
+  color: #ffffff;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  outline-color: var(--color-primary);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-item {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.28);
+}
+
+.post-title {
+  margin-bottom: 0.25rem;
+}
+
+.post-title a {
+  color: var(--color-primary);
+  border-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.post-title a:hover,
+.post-title a:focus {
+  color: #ffffff;
+  background-color: var(--color-primary-hover);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0.25rem 0 0.65rem;
+  color: var(--color-text-meta);
+  font-size: 0.82rem;
+}
+
+.post-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.post-tags a {
+  color: var(--color-text-meta);
+  border-bottom: 0;
+}
+
+.post-tags a:hover,
+.post-tags a:focus {
+  color: #ffffff;
+  background-color: var(--color-primary-hover);
+}
+
+.post-summary {
+  margin: 0;
+  line-height: 1.65;
+}
+
+footer {
+  border-top: 1px solid var(--color-border);
+  border-block-start: 1px solid var(--color-border);
+}
+
+footer .border {
+  width: 0;
+  height: 1.25rem;
+  margin-inline: 0.65rem;
+  border: 0;
+  border-inline-start: 1px solid var(--color-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection,
+  ::-moz-selection {
+    color: #0b1f35;
+  }
+
+  a:hover,
+  a:focus,
+  .tags a:hover,
+  .tags a:focus,
+  .soc:hover,
+  .soc:focus,
+  .nav-toggle:hover,
+  .nav-toggle:focus {
+    color: #0b1f35;
+    background-color: var(--color-primary-hover-dark);
+    outline-color: var(--color-primary-dark);
+  }
+
+  .post-title a {
+    color: var(--color-primary-dark);
+  }
+
+  .post-title a:hover,
+  .post-title a:focus,
+  .post-tags a:hover,
+  .post-tags a:focus {
+    color: #0b1f35;
+    background-color: var(--color-primary-hover-dark);
+  }
+
+  header .main > a,
+  header .main > a:hover,
+  header .main > a:focus {
+    color: #ffffff;
+  }
+
+  footer {
+    border-color: var(--color-border-dark);
+  }
+
+  footer .border {
+    border-inline-start-color: var(--color-border-dark);
+  }
+}

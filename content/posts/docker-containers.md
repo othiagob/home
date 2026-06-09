@@ -1,58 +1,67 @@
 ---
-title: "Docker: Containerizando Aplicações"
+title: "Docker: Containerizando uma Aplicação Spring Boot"
 date: 2026-06-07
 draft: false
-tags: ["docker", "devops", "containers"]
-summary: "Introdução prática ao Docker, explicando containers, vantagens e comandos básicos para começar."
+tags: ["docker", "java", "spring-boot", "linux"]
+summary: "Introdução ao Docker com um exemplo de container para uma aplicação Java criada com Spring Boot."
 ---
 
-# Docker: Containerizando Aplicações
+# Docker com Spring Boot
 
-Docker revolucionou a forma como desenvolvemos, testamos e deployamos aplicações. Neste post, vamos explorar os conceitos básicos de containers e como usar Docker.
+Docker ajuda a executar uma aplicação da mesma forma em diferentes ambientes. No Linux, ele também combina muito bem com o fluxo de desenvolvimento de APIs Java e Spring Boot.
 
 ## O que é Docker?
 
-Docker é uma plataforma open-source que permite empacotar aplicações e suas dependências em containers leves e portáveis. Um container é como uma máquina virtual, mas muito mais eficiente.
+Docker é uma plataforma open source para empacotar aplicações e suas dependências em containers isolados e portáveis. Diferentemente de uma máquina virtual completa, o container compartilha o kernel do sistema hospedeiro.
 
 ## Vantagens do Docker
 
-* **Portabilidade** - Execute em qualquer lugar (seu laptop, servidor, cloud)
-* **Isolamento** - Aplicações isoladas em containers separados
-* **Eficiência** - Menos overhead que máquinas virtuais
-* **Escalabilidade** - Fácil de escalar horizontalmente
+* **Consistência** - A mesma imagem pode ser usada no computador e no servidor
+* **Isolamento** - A aplicação e suas dependências ficam agrupadas
+* **Automação** - O processo de criação e execução pode ser documentado
+* **Integração** - Bancos de dados e outros serviços podem ser organizados com Compose
 
-## Seu Primeiro Container
+## Dockerfile para Spring Boot
 
-Para criar um container simples com Node.js:
+Depois de gerar o arquivo JAR com Maven, podemos criar uma imagem pequena usando uma JRE:
 
 ```dockerfile
-FROM node:18
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY target/*.jar app.jar
 
-RUN npm install
+EXPOSE 8080
 
-COPY . .
-
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-## Comandos Úteis
+## Construindo e executando
+
+Primeiro, gere o pacote da aplicação:
+
+```bash
+./mvnw clean package
+```
+
+Depois, construa e execute a imagem:
+
+```bash
+docker build -t minha-api .
+docker run --rm -p 8080:8080 minha-api
+```
+
+## Comandos úteis
 
 | Comando | Descrição |
 |---------|-----------|
-| `docker build -t nome .` | Constrói uma imagem |
-| `docker run -p 3000:3000 nome` | Executa um container |
+| `docker build -t minha-api .` | Constrói a imagem |
+| `docker run -p 8080:8080 minha-api` | Executa a API |
 | `docker ps` | Lista containers em execução |
 | `docker stop <id>` | Para um container |
 | `docker logs <id>` | Visualiza logs |
 
 ## Resumo
 
-Docker simplifica o processo de deployment e garante consistência entre ambientes. Se você ainda não usa, é hora de começar!
-
-**Continua...**
+Docker torna o ambiente de uma aplicação Spring Boot mais previsível e prepara o projeto para integração com bancos de dados, pipelines e servidores Linux.

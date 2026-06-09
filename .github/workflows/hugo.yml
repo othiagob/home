@@ -8,6 +8,8 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  HUGO_VERSION: 0.147.9
+  ARCHIE_VERSION: cbc1c3aaa2615fa348b85ef39eb4570cd3ac6414
 
 permissions:
   contents: read
@@ -28,13 +30,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download Archie theme
-        run: git clone --depth 1 https://github.com/athul/archie.git themes/archie
+      - name: Download pinned Archie theme
+        run: ./scripts/setup-theme.sh
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.147.9'
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
       - name: Setup Pages

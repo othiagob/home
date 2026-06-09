@@ -6,21 +6,21 @@ draft: false
 
 # Sobre Thiago Borghardt
 
-Olá! Sou Thiago Borghardt, estudante e desenvolvedor em formação, com foco em programação backend, Java, Spring Boot e fundamentos de Ciência da Computação.
+Olá! Sou Thiago Borghardt, estudante e desenvolvedor em formação. Uso Linux no dia a dia, atualmente com Manjaro e KDE Plasma, e concentro meus estudos de backend em Java e Spring Boot.
 
 ## Sobre minha jornada
 
-Estou construindo meu conhecimento em desenvolvimento de software com foco em soluções práticas, organização de código, boas práticas e evolução constante como programador.
+Minha jornada une a liberdade do Linux com o desenvolvimento backend. Gosto de entender o sistema, configurar meu ambiente e transformar o aprendizado em projetos práticos com Java.
 
 ## Tecnologias e interesses
 
 Tenho estudado e praticado principalmente:
 
-* **Backend** — Java, Spring Boot e APIs REST
-* **Banco de dados** — SQL e modelagem básica de dados
-* **DevOps e ferramentas** — Git, GitHub, Docker e automação de deploy
-* **Arquitetura** — organização de projetos, separação de responsabilidades e manutenção de código
-* **Tecnologia** — desenvolvimento web, sistemas, produtividade e aprendizado contínuo
+* **Linux** — Manjaro, terminal, shell, administração e personalização do KDE Plasma
+* **Backend** — Java, Spring Boot, Maven e construção de APIs REST
+* **Banco de dados** — SQL, modelagem de dados e persistência com Spring Data JPA
+* **Ferramentas** — Git, GitHub, Docker, IntelliJ IDEA e automação de tarefas
+* **Boas práticas** — organização de projetos, testes e código fácil de manter
 
 ## Contato
 

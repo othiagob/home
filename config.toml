@@ -14,7 +14,8 @@ pygmentscodefencesguesssyntax = true
 [params]
 	mode = "auto"
 	useCDN = false
-	subtitle = "Programação backend, tecnologia e aprendizado em Ciência da Computação"
+	customCSS = ["css/custom.css"]
+	subtitle = "Linux, Manjaro KDE, Java e minha jornada com Spring Boot"
 	mainSections = ["posts"]
 	summaryLength = 30
 
