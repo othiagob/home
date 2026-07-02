@@ -1,60 +1,118 @@
 ---
-title: "Primeiros Passos com Java e Spring Boot"
+title: "Primeiros Passos com Java 17 e Spring Boot 🚀"
 date: 2026-06-08
 draft: false
 tags: ["java", "spring-boot", "backend", "tutorial"]
-summary: "Uma introdução ao Spring Boot, sua estrutura básica e a criação de um primeiro endpoint REST com Java."
+summary: "Uma introdução leve e descontraída ao Spring Boot, como configurar o projeto e escrever seu primeiro controller funcional."
 ---
 
-# Primeiros passos com Spring Boot
+# Desmistificando o Spring Boot
 
-Spring Boot simplifica a criação de aplicações Java ao oferecer configuração automática, servidor web integrado e uma estrutura preparada para projetos backend.
+Muita gente que está começando no desenvolvimento backend olha para o Java e sente um frio na espinha pelo excesso de linhas de código necessários para fazer coisas simples. Mas a verdade é que, hoje em dia, o ecossistema **Java 17+** com **Spring Boot 3** é extremamente amigável, rápido e poderoso.
 
-## Por que estou estudando Spring Boot?
+Neste post, vamos criar um endpoint REST simples para entender como o Spring Boot facilita a nossa vida e nos permite focar nas regras de negócio (sem ter que configurar servidores de aplicação de forma manual).
 
-Java possui um ecossistema sólido e é muito usado em aplicações corporativas. Com Spring Boot, posso aplicar os fundamentos da linguagem enquanto aprendo a desenvolver APIs REST e serviços organizados.
+---
 
-1. **Configuração automática** - Reduz boa parte da configuração manual
-2. **Servidor integrado** - A aplicação pode ser executada diretamente
-3. **Ecossistema** - Integração com bancos de dados, segurança e testes
-4. **Organização** - Incentiva a separação de responsabilidades
+## ☕ Por que estou focando no ecossistema Spring?
 
-## Primeiro endpoint
+Depois de pesquisar bastante sobre arquitetura, vi que o Java possui um mercado extremamente sólido. Estudar Spring Boot me permite:
 
-Este controller responde a uma requisição em `/api/saudacao`:
+1. **Configuração Automática (Auto-configuration)**: O framework infere quais componentes você precisa com base nas dependências declaradas no seu arquivo `pom.xml`.
+2. **Servidor Embutido**: Nada de instalar Tomcat separado! A aplicação compila e roda diretamente como um arquivo `.jar` executável.
+3. **Persistência Simples**: Integrar com bancos de dados relacionais usando o Spring Data JPA parece mágica de tão poucas queries manuais que precisamos escrever.
+
+---
+
+## 💻 Criando o Nosso Primeiro Endpoint REST
+
+Vamos fingir que estamos criando um micro serviço para receber e validar uma saudação de faturamento (como as rotinas de contas médicas que lido no dia a dia da Unimed). 
+
+Aqui está o código do nosso controller. Note como as anotações do Spring tornam tudo legível:
 
 ```java
 package com.othiagob.blog.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
 public class SaudacaoController {
 
-    @GetMapping("/saudacao")
-    public String saudacao() {
-        return "Olá, Spring Boot!";
+    // Responde a requisições GET em http://localhost:8080/api/faturamento
+    @GetMapping("/faturamento")
+    public FaturamentoStatus consultarStatus(@RequestParam(defaultValue = "Geral") String setor) {
+        return new FaturamentoStatus(
+            "API de Faturamento Ativa", 
+            "Setor Analisado: " + setor,
+            "Tudo funcionando! 🚀"
+        );
     }
 }
+
+// Uma classe simples (Record) para representar nossa resposta em JSON
+record FaturamentoStatus(String status, String detalhes, String mensagem) {}
 ```
 
-## Executando no Linux
+> 💡 **Novidade do Java 16+:**
+> Usei um `record` ali no final para representar o DTO (Data Transfer Object). Ele gera automaticamente construtores, getters, `equals`, `hashCode` e `toString` por baixo dos panos. Muito menos boilerplate!
 
-Em um projeto criado com Maven Wrapper, posso iniciar a aplicação pelo terminal:
+---
+
+## 🐚 Executando o Projeto no Linux
+
+Se você criou o projeto usando o clássico [Spring Initializr](https://start.spring.org/) com o Maven Wrapper, rodar a aplicação no terminal do Manjaro (ou qualquer distro Linux) é extremamente simples.
+
+Basta navegar até a pasta raiz do projeto e digitar no terminal:
 
 ```bash
+# Permissão de execução para o wrapper, caso precise
+chmod +x mvnw
+
+# Compila e roda o servidor embutido em tempo real!
 ./mvnw spring-boot:run
 ```
 
-O endpoint ficará disponível em:
+Se tudo deu certo, o seu console vai mostrar o logo clássico do Spring em ASCII e a mensagem de que a aplicação subiu na porta `8080`.
 
-```text
-http://localhost:8080/api/saudacao
+---
+
+## 🧪 Testando o endpoint na Prática
+
+Você pode abrir o seu navegador ou usar ferramentas como o Insomnia/Postman, mas como estamos no Linux, vamos testar diretamente via comando `curl` no terminal:
+
+```bash
+# Fazendo a requisição GET
+curl "http://localhost:8080/api/faturamento?setor=ContasMedicas"
 ```
 
-## Próximos estudos
+A resposta JSON formatada que você vai receber é:
 
-Os próximos passos são aprender injeção de dependências, validação, tratamento de erros, Spring Data JPA e testes automatizados.
+```json
+{
+  "status": "API de Faturamento Ativa",
+  "detalhes": "Setor Analisado: ContasMedicas",
+  "mensagem": "Tudo funcionando! 🚀"
+}
+```
+
+---
+
+## 🏁 O que vem pela frente?
+
+Este é só o comecinho. Os próximos passos envolvem:
+
+* Mapeamento de entidades com **JPA / Hibernate**;
+* Persistência de dados real em um banco como o PostgreSQL;
+* Autenticação e segurança de endpoints.
+
+Se você está estudando Java ou migrando para a área de backend assim como eu, recomendo este excelente vídeo que explica o fluxo completo de funcionamento do Spring Boot por baixo dos panos:
+
+{{< youtube 5T_nK693h0Q >}}
+
+*Dica: Assista no 1.5x e vá anotando os conceitos chave no seu Obsidian!*
+
+E aí, achou o Java amigável agora? Se tiver alguma dúvida ou sugestão, deixa nos comentários! Valeu! ☕💻
