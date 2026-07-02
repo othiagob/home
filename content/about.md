@@ -30,7 +30,7 @@ Para manter tudo organizado na minha cabeça e no setor, sou fã incondicional d
 Estou focando e aprofundando meus estudos nas seguintes tecnologias:
 
 * **Backend**: Java e Spring Boot. Atualmente participo do programa **Oracle Next Education (ONE)** em parceria com a Alura, onde coloco a mão na massa desenvolvendo APIs REST e aplicando os pilares da Orientação a Objetos.
-* **Sistemas Operacionais**: Usuário raiz de **Linux**. Minha distro principal é o **Manjaro com a interface KDE Plasma**. Adoro customizar meu terminal (Konsole), criar scripts utilitários e entender o funcionamento do kernel.
+* **Sistemas Operacionais**: Usuário de **Linux**. Adoro trabalhar no terminal, automatizar tarefas via shell script e entender os fundamentos do sistema operacional (atualmente utilizo o Manjaro Linux como meu ambiente local).
 * **Banco de Dados**: Muito SQL e modelagem relacional usando o **DBeaver** para gerenciar tudo.
 * **Infraestrutura**: Docker e Docker Compose para containerizar minhas aplicações e simular ambientes de produção locais.
 * **Inteligência Artificial**: Um dos meus maiores laboratórios pessoais! Gosto de configurar modelos de IA locais e via API, automatizar tarefas via **n8n** e explorar fluxos de agentes. Inclusive, montei uma estrutura chamada **Hermes + Odysseus AI** rodando em Docker para atuar como meu assistente técnico pessoal.
@@ -39,7 +39,7 @@ Estou focando e aprofundando meus estudos nas seguintes tecnologias:
 
 ## Vamos trocar uma ideia?
 
-Se você quiser conversar sobre Java, customização do Manjaro, automação de tarefas ou apenas falar sobre como o Docker facilita a nossa vida, me dá um alô:
+Se você quiser conversar sobre Java, Linux, automação de tarefas ou apenas falar sobre como o Docker facilita a nossa vida, me dá um alô:
 
 * **E-mail**: [thiago.mobdev@gmail.com](mailto:thiago.mobdev@gmail.com)
 * **LinkedIn**: [/in/thiago-borghardt-5234b0334](https://www.linkedin.com/in/thiago-borghardt-5234b0334/)

@@ -64,7 +64,7 @@ record FaturamentoStatus(String status, String detalhes, String mensagem) {}
 
 ## Executando o Projeto no Linux
 
-Se você criou o projeto usando o clássico [Spring Initializr](https://start.spring.org/) com o Maven Wrapper, rodar a aplicação no terminal do Manjaro (ou qualquer distro Linux) é extremamente simples.
+Se você criou o projeto usando o clássico [Spring Initializr](https://start.spring.org/) com o Maven Wrapper, rodar a aplicação no terminal do Linux é extremamente simples.
 
 Basta navegar até a pasta raiz do projeto e digitar no terminal:
 
