@@ -1,5 +1,5 @@
 ---
-title: "Primeiros Passos com Java 17 e Spring Boot 🚀"
+title: "Primeiros Passos com Java 17 e Spring Boot"
 date: 2026-06-08
 draft: false
 tags: ["java", "spring-boot", "backend", "tutorial"]
@@ -14,7 +14,7 @@ Neste post, vamos criar um endpoint REST simples para entender como o Spring Boo
 
 ---
 
-## ☕ Por que estou focando no ecossistema Spring?
+## Por que estou focando no ecossistema Spring?
 
 Depois de pesquisar bastante sobre arquitetura, vi que o Java possui um mercado extremamente sólido. Estudar Spring Boot me permite:
 
@@ -24,7 +24,7 @@ Depois de pesquisar bastante sobre arquitetura, vi que o Java possui um mercado 
 
 ---
 
-## 💻 Criando o Nosso Primeiro Endpoint REST
+## Criando o Nosso Primeiro Endpoint REST
 
 Vamos fingir que estamos criando um micro serviço para receber e validar uma saudação de faturamento (como as rotinas de contas médicas que lido no dia a dia da Unimed). 
 
@@ -48,7 +48,7 @@ public class SaudacaoController {
         return new FaturamentoStatus(
             "API de Faturamento Ativa", 
             "Setor Analisado: " + setor,
-            "Tudo funcionando! 🚀"
+            "Tudo funcionando!"
         );
     }
 }
@@ -57,12 +57,12 @@ public class SaudacaoController {
 record FaturamentoStatus(String status, String detalhes, String mensagem) {}
 ```
 
-> 💡 **Novidade do Java 16+:**
+> **Novidade do Java 16+:**
 > Usei um `record` ali no final para representar o DTO (Data Transfer Object). Ele gera automaticamente construtores, getters, `equals`, `hashCode` e `toString` por baixo dos panos. Muito menos boilerplate!
 
 ---
 
-## 🐚 Executando o Projeto no Linux
+## Executando o Projeto no Linux
 
 Se você criou o projeto usando o clássico [Spring Initializr](https://start.spring.org/) com o Maven Wrapper, rodar a aplicação no terminal do Manjaro (ou qualquer distro Linux) é extremamente simples.
 
@@ -80,7 +80,7 @@ Se tudo deu certo, o seu console vai mostrar o logo clássico do Spring em ASCII
 
 ---
 
-## 🧪 Testando o endpoint na Prática
+## Testando o endpoint na Prática
 
 Você pode abrir o seu navegador ou usar ferramentas como o Insomnia/Postman, mas como estamos no Linux, vamos testar diretamente via comando `curl` no terminal:
 
@@ -95,13 +95,13 @@ A resposta JSON formatada que você vai receber é:
 {
   "status": "API de Faturamento Ativa",
   "detalhes": "Setor Analisado: ContasMedicas",
-  "mensagem": "Tudo funcionando! 🚀"
+  "mensagem": "Tudo funcionando!"
 }
 ```
 
 ---
 
-## 🏁 O que vem pela frente?
+## O que vem pela frente?
 
 Este é só o comecinho. Os próximos passos envolvem:
 
@@ -115,4 +115,4 @@ Se você está estudando Java ou migrando para a área de backend assim como eu,
 
 *Dica: Assista no 1.5x e vá anotando os conceitos chave no seu Obsidian!*
 
-E aí, achou o Java amigável agora? Se tiver alguma dúvida ou sugestão, deixa nos comentários! Valeu! ☕💻
+E aí, achou o Java amigável agora? Se tiver alguma dúvida ou sugestão, deixa nos comentários! Valeu!

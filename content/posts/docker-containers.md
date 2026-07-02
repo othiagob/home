@@ -1,5 +1,5 @@
 ---
-title: "Docker: O Canivete Suíço do Desenvolvimento Moderno 🐳"
+title: "Docker: O Canivete Suíço do Desenvolvimento Moderno"
 date: 2026-06-07
 draft: false
 tags: ["docker", "infraestrutura", "linux", "backend"]
@@ -16,7 +16,7 @@ Neste post, vamos entender os conceitos básicos e criar um Dockerfile simples p
 
 ---
 
-## 🧐 VM vs. Containers: Qual a diferença?
+## VM vs. Containers: Qual a diferença?
 
 Muitos confundem containers com Máquinas Virtuais (VMs). A diferença principal é simples e impacta diretamente a performance do seu computador:
 
@@ -25,7 +25,7 @@ Muitos confundem containers com Máquinas Virtuais (VMs). A diferença principal
 
 ---
 
-## 🛠️ Escrevendo o Nosso Primeiro Dockerfile para Java
+## Escrevendo o Nosso Primeiro Dockerfile para Java
 
 Depois de compilarmos nossa aplicação Spring Boot usando o Maven e gerando o arquivo executável `.jar`, o próximo passo é criar um arquivo chamado **`Dockerfile`** (sem extensão) na raiz do projeto. 
 
@@ -48,12 +48,12 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-> 💡 **Dica de Infra:**
+> **Dica de Infra:**
 > Usei a imagem base `eclipse-temurin:17-jre-alpine`. O sufixo `-alpine` indica que ela é baseada no Alpine Linux, uma distribuição extremamente minimalista voltada para segurança e tamanho reduzido. A imagem final fica minúscula!
 
 ---
 
-## 🐳 Construindo e Executando a Imagem no Terminal
+## Construindo e Executando a Imagem no Terminal
 
 Com o Docker instalado no seu Linux, abra o terminal e execute a seguinte sequência de comandos para gerar e subir a sua aplicação containerizada:
 
@@ -68,11 +68,11 @@ docker build -t meu-app-java .
 docker run --rm -p 8080:8080 meu-app-java
 ```
 
-A flag `--rm` serve para que o Docker remova o container automaticamente quando ele for finalizado, evitando acumular lixo no seu disco rígido.
+A flag `--rm` serve para que o Docker remove o container automaticamente quando ele for finalizado, evitando acumular lixo no seu disco rígido.
 
 ---
 
-## 📋 Minha Colinha de Comandos Docker Úteis
+## Colinha de Comandos Docker Úteis
 
 Para facilitar o seu dia a dia, salvei os comandos que mais uso nas minhas rotinas de testes:
 
@@ -87,7 +87,7 @@ Para facilitar o seu dia a dia, salvei os comandos que mais uso nas minhas rotin
 
 ---
 
-## 📺 Quer ir além? Entenda o Docker Compose!
+## Entenda o Docker Compose
 
 Quando sua aplicação cresce e precisa se conectar a um banco de dados PostgreSQL e um serviço de cache Redis, subir cada container separado via `docker run` vira uma bagunça. É aí que entra o **Docker Compose**.
 
@@ -99,4 +99,4 @@ Se você quiser ver como orquestrar múltiplos containers de forma simples, reco
 
 ## E você?
 
-Já usa Docker no seu fluxo de desenvolvimento ou ainda está quebrando a cabeça configurando bancos locais no sistema? Se tiver alguma dúvida ou comentário sobre Dockerfiles, manda bala nos comentários abaixo! Até mais! 🐳💻
+Já usa Docker no seu fluxo de desenvolvimento ou ainda está quebrando a cabeça configurando bancos locais no sistema? Se tiver alguma dúvida ou comentário sobre Dockerfiles, manda bala nos comentários abaixo! Até mais!

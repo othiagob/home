@@ -1,5 +1,5 @@
 ---
-title: "Meu Ambiente de Desenvolvimento no Manjaro KDE 🐧"
+title: "Meu Ambiente de Desenvolvimento no Manjaro KDE"
 date: 2026-06-06
 draft: false
 tags: ["linux", "manjaro", "kde", "produtividade"]
@@ -14,7 +14,7 @@ A combinação da estabilidade da base Arch Linux (através do modelo Rolling Re
 
 ---
 
-## 🛠️ Minha Caixa de Ferramentas Principal
+## Minha Caixa de Ferramentas Principal
 
 Para transformar café em código Java e automatizações úteis, estas são as ferramentas que rodam no meu dia a dia:
 
@@ -29,7 +29,7 @@ Para transformar café em código Java e automatizações úteis, estas são as 
 
 ---
 
-## 🚀 Deixando o Ambiente Pronto para Java
+## Deixando o Ambiente Ready para Java
 
 Configurar o Java no Manjaro é extremamente simples. Com o terminal aberto no meu **Konsole**, a primeira coisa que faço é verificar as versões instaladas:
 
@@ -48,19 +48,19 @@ Como o Manjaro é baseado em Arch, caso você precise alternar entre diferentes 
 archlinux-java status
 ```
 
-> 💡 **Dica de ouro para quem está começando no Linux:**
+> **Dica para quem está começando no Linux:**
 > O comando `archlinux-java` permite alternar a versão do Java global com apenas uma linha. Por exemplo: `sudo archlinux-java set java-17-openjdk`. Prático e sem dor de cabeça!
 
 ---
 
-## 🎨 O "Fator KDE" e a Produtividade com Obsidian
+## O "Fator KDE" e a Produtividade com Obsidian
 
 Uma das razões de eu amar o KDE Plasma é que ele permite que eu configure atalhos globais rápidos para tudo. O meu Obsidian, por exemplo, está configurado para abrir instantaneamente com um atalho de teclado, permitindo que eu capture insights de estudo sem perder o foco do código.
 
 Aqui está um exemplo de como estruturei minha rotina de notas sobre Java 17 usando formatação markdown:
 
 ```markdown
-# 📂 Estudos Java 17
+# Estudos Java 17
 - [ ] Implementar controller de saudação
 - [ ] Validar DTOs com Jakarta Validation
 - [x] Configurar container PostgreSQL local com Docker Compose
@@ -68,7 +68,7 @@ Aqui está um exemplo de como estruturei minha rotina de notas sobre Java 17 usa
 
 ---
 
-## 📺 Quer ver como customizar o KDE Plasma do zero?
+## Como customizar o KDE Plasma do zero?
 
 Para quem quer deixar o Manjaro com um visual limpo e minimalista (assim como eu fiz no meu blog!), recomendo assistir a esse guia rápido de customização visual do KDE:
 
@@ -82,4 +82,4 @@ Para quem quer deixar o Manjaro com um visual limpo e minimalista (assim como eu
 
 Com o terminal customizado, Docker rodando e a JDK no ponto, estou pronto para codar minhas APIs REST e automatizar o que aparecer pela frente. No próximo post, vou mostrar como criei meu primeiro endpoint com Spring Boot rodando nesse ambiente. 
 
-E você, qual distro Linux ou sistema operacional usa para desenvolver? Deixa sua dica nos comentários! ☕🐧
+E você, qual distro Linux ou sistema operacional usa para desenvolver? Deixa sua dica nos comentários!
