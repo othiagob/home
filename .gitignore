@@ -1,6 +1,32 @@
+# Build artifacts
 /public/
 /resources/
-/themes/
 /.hugo_build.lock
+
+# Dependências baixadas (setup-theme.sh baixa o tema na revisão pinada)
+/themes/
+
 # Documentos internos de orientação (não publicar)
 HERMES-ORIENTACAO.md
+
+# Ambiente e segredos (defesa em profundidade)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.git-credentials
+
+# Editor e sistema operacional
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# Logs e cache
+*.log
+.cache/
