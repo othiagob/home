@@ -9,26 +9,62 @@
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  /* Controla o link #darkModeStyle do tema Archie (dark.css):
+     - auto  -> restaura a media query original (segue o sistema)
+     - light -> desabilita o dark.css
+     - dark  -> habilita o dark.css sem media query */
+  var darkStyle = document.getElementById("darkModeStyle");
+  var ORIG_MEDIA = darkStyle ? (darkStyle.getAttribute("media") || "all") : null;
+
   function applyTheme(theme) {
     var resolved = theme === "auto" ? (systemPrefersDark() ? "dark" : "light") : theme;
-    root.dataset.theme = resolved;                    // Archie novo (data-theme)
-    root.classList.toggle("dark", resolved === "dark"); // Archie antigo (.dark)
+    root.dataset.theme = resolved;                    // CSS novo (data-theme)
+    root.classList.toggle("dark", resolved === "dark"); // fallback (.dark)
     root.style.colorScheme = resolved;
 
-    /* Tema Archie: dark.css é controlado pela media query do <link id="darkModeStyle"> */
-    var darkLink = document.getElementById("darkModeStyle");
-    if (darkLink) {
+    if (darkStyle) {
       if (theme === "auto") {
-        darkLink.media = "(prefers-color-scheme: dark)";
+        darkStyle.disabled = false;
+        darkStyle.media = ORIG_MEDIA;
+      } else if (theme === "light") {
+        darkStyle.disabled = true;
       } else {
-        darkLink.media = resolved === "dark" ? "all" : "not all";
+        darkStyle.disabled = false;
+        darkStyle.media = "all";
       }
     }
 
-    var btn = document.getElementById("theme-toggle");
-    if (btn) {
-      btn.setAttribute("aria-label", resolved === "dark" ? "Ativar tema claro" : "Ativar tema escuro");
-      btn.textContent = resolved === "dark" ? "☀️" : "🌙";
+    /* Box do tema ativo no seletor THEMA: LIGHT | DARK */
+    var lightBtn = document.getElementById("theme-opt-light");
+    var darkBtn = document.getElementById("theme-opt-dark");
+    if (lightBtn && darkBtn) {
+      var isDark = resolved === "dark";
+      lightBtn.classList.toggle("active", !isDark);
+      darkBtn.classList.toggle("active", isDark);
+      lightBtn.setAttribute("aria-pressed", isDark ? "false" : "true");
+      darkBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
+    }
+  }
+
+  /* Troca de tema com transição suave:
+     - View Transitions API quando disponível (crossfade da página inteira)
+     - fallback: classe .theme-anim anima as cores via CSS por ~600ms */
+  function transitionTheme(theme) {
+    if (prefersReducedMotion()) {
+      applyTheme(theme);
+      return;
+    }
+    if (document.startViewTransition) {
+      document.startViewTransition(function () { applyTheme(theme); });
+    } else {
+      applyTheme(theme);
+      root.classList.add("theme-anim");
+      clearTimeout(root._themeAnimTimer);
+      root._themeAnimTimer = setTimeout(function () { root.classList.remove("theme-anim"); }, 600);
     }
   }
 
@@ -36,26 +72,47 @@
     try { return localStorage.getItem(STORAGE_KEY) || "auto"; } catch (e) { return "auto"; }
   }
 
-  function toggleTheme() {
-    var next = root.dataset.theme === "dark" ? "light" : "dark";
-    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
-    applyTheme(next);
-  }
-
-  function prefersReducedMotion() {
-    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function setTheme(theme) {
+    try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    transitionTheme(theme);
   }
 
   function init() {
-    /* Botão de tema */
-    var toggleBtn = document.createElement("button");
-    toggleBtn.id = "theme-toggle";
-    toggleBtn.type = "button";
-    toggleBtn.className = "enh-toggle";
-    toggleBtn.setAttribute("aria-label", "Alternar tema claro/escuro");
-    document.body.appendChild(toggleBtn);
+    /* Seletor de tema textual: THEMA: LIGHT | DARK */
+    var switcher = document.createElement("div");
+    switcher.className = "theme-switcher";
+    switcher.setAttribute("role", "group");
+    switcher.setAttribute("aria-label", "Tema do site");
+
+    var label = document.createElement("span");
+    label.className = "theme-label";
+    label.textContent = "THEMA:";
+    switcher.appendChild(label);
+
+    function makeOpt(id, text, theme) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = id;
+      b.className = "theme-opt";
+      b.textContent = text;
+      b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () { setTheme(theme); });
+      return b;
+    }
+
+    var lightBtn = makeOpt("theme-opt-light", "LIGHT", "light");
+    var sep = document.createElement("span");
+    sep.className = "theme-sep";
+    sep.textContent = "|";
+    sep.setAttribute("aria-hidden", "true");
+    var darkBtn = makeOpt("theme-opt-dark", "DARK", "dark");
+
+    switcher.appendChild(lightBtn);
+    switcher.appendChild(sep);
+    switcher.appendChild(darkBtn);
+    document.body.appendChild(switcher);
+
     applyTheme(getSavedTheme());
-    toggleBtn.addEventListener("click", toggleTheme);
 
     /* Botão voltar ao topo */
     var topBtn = document.createElement("button");

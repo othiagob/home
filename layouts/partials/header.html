@@ -64,7 +64,7 @@
 		MathJax.Hub.Config({
 			tex2jax: {
 				inlineMath: [['$','$'], ['\\(','\\)']],
-				displayMath: [['$$','$$'], ['\\[','\\]']],
+				displayMath: [['$$','$$'], ['\[','\]']],
 				processEscapes: true,
 				processEnvironments: true,
 				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
@@ -115,7 +115,5 @@
 	<script src="{{ absURL . }}"></script>
 	{{- end }}
 	{{- end }}
-
-	{{- /* ===== Melhorias do blog: SEO complementar (canonical, author, favicon, JSON-LD) ===== */}}
 	{{- partial "head-seo.html" . -}}
 </head>

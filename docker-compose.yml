@@ -1,0 +1,31 @@
+# Docker Compose para desenvolvimento local do blog.
+#
+# Uso:
+#   docker compose up          -> sobe o servidor de dev em http://localhost:1313
+#   docker compose up -d       -> idem, em background
+#   docker compose down        -> para o servidor
+#   docker compose run --rm blog --gc --minify   -> build estático em public/
+#
+# A imagem oficial do Hugo (ghcr.io/gohugoio/hugo) já inclui git, nodejs, npm e
+# dart-sass. O entrypoint do projeto roda scripts/setup-theme.sh (tema Archie
+# pinado na versão cbc1c3a) antes de executar o hugo, então o clone do tema
+# acontece dentro do container e o diretório themes/ continua gitignored.
+services:
+  blog:
+    image: ghcr.io/gohugoio/hugo:v0.147.9
+    entrypoint:
+      - /bin/sh
+      - /project/scripts/docker-entrypoint.sh
+    command:
+      - server
+      - --bind
+      - 0.0.0.0
+      - --buildDrafts
+      - --disableFastRender
+    ports:
+      - "1313:1313"
+    volumes:
+      - .:/project
+    working_dir: /project
+    environment:
+      - HUGO_CACHEDIR=/cache

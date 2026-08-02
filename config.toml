@@ -29,6 +29,7 @@ pygmentscodefencesguesssyntax = true
 	summaryLength = 30
 	description = "Blog do Thiago Borghardt"
 	author = "Thiago Borghardt"
+	og_image = "img/og-default.png"
 
 [[params.social]]
 	name = "GitHub"
