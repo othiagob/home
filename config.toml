@@ -3,6 +3,7 @@ languageCode = "pt-br"
 title = "Blog - Thiago Borghardt"
 theme = "archie"
 copyright = "© Thiago Borghardt"
+enableRobotsTXT = true
 
 pygmentsstyle = "monokai"
 pygmentscodefences = true
@@ -11,6 +12,14 @@ pygmentscodefencesguesssyntax = true
 [pagination]
 	pagerSize = 5
 
+[related]
+	threshold = 80
+	includeNewer = true
+	toLower = true
+	[[related.indices]]
+		name = "tags"
+		weight = 100
+
 [params]
 	mode = "auto"
 	useCDN = false
@@ -18,6 +27,8 @@ pygmentscodefencesguesssyntax = true
 	subtitle = "Linux, Java e minha jornada com desenvolvimento backend"
 	mainSections = ["posts"]
 	summaryLength = 30
+	description = "Blog do Thiago Borghardt"
+	author = "Thiago Borghardt"
 
 [[params.social]]
 	name = "GitHub"

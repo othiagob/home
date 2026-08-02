@@ -1,11 +1,11 @@
 {{ define "main" }}
-<main>
+<main id="main-content">
   <article>
     <div class="post-container">
       <div class="post-content">
         <div class="title">
           <h1 class="title">{{ .Title }}</h1>
-          <div class="meta">Publicado em {{ .Date.Format "02/01/2006" }}{{ if .Draft }} <span class="draft-label">RASCUNHO</span>{{ end }}</div>
+          <div class="meta">Publicado em {{ .Date.Format "02/01/2006" }}{{ if .Draft }} <span class="draft-label">RASCUNHO</span>{{ end }} · <span class="reading-time">☕ {{ .ReadingTime }} min de leitura ({{ .WordCount }} palavras)</span></div>
         </div>
         {{ if isset .Params "tldr" }}
         <div class="tldr">
@@ -38,6 +38,27 @@
       </div>
       {{ end }}
     </div>
+
+    {{ if ne .Type "page" }}
+    {{/* Posts relacionados (baseado em tags) */}}
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ if $related }}
+    <aside class="related-posts" aria-label="Posts relacionados">
+      <h2>Posts relacionados</h2>
+      <ul class="related-list">
+        {{ range $related }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <small>({{ .ReadingTime }} min)</small></li>
+        {{ end }}
+      </ul>
+    </aside>
+    {{ end }}
+
+    {{/* Navegação anterior/próximo */}}
+    <nav class="post-nav" aria-label="Navegação entre posts">
+      {{ with .PrevInSection }}<a class="prev" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a class="next" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+    </nav>
+    {{ end }}
 
     {{- $.Scratch.Set "isDisqus" true -}}
     {{ if not .Site.Config.Services.Disqus.Shortname }}
